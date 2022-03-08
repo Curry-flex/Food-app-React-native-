@@ -49,9 +49,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import MapView from 'react-native-maps';
 import fav from './fav.jpeg'
 import { Item } from 'react-native-paper/lib/typescript/components/List/List';
-import Home from './screens/Home';
-import RestaurantDetailsHome from './screens/RestaurantDetailsHome';
-import RootNavigation from './screens/Navigation';
+import Home from './src/views/Home';
+import ViewClothes from './src/views/View';
+  
 
 
 const Stack =createStackNavigator()
@@ -60,10 +60,21 @@ const Tab = createBottomTabNavigator()
 
 const App = () => {
   return (
-
-    <RootNavigation />
-  
-    
+    <NavigationContainer>
+      <Stack.Navigator
+      initialRouteName='home'
+      >
+        <Stack.Screen 
+        name="home"
+        component={Home}
+        />
+        <Stack.Screen 
+        name="details"
+        component={ViewClothes}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+     
   )
 }
 
